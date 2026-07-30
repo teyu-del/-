@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d4ed8">
+  <title>金融講座 テスト対策</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="brand" type="button" data-action="home" aria-label="ホームへ戻る"><span>📘</span> 金融講座 テスト対策</button>
+      <div class="header-actions"><button class="icon-button" data-action="toggle-theme" aria-label="テーマを切り替える">◐</button></div>
+    </header>
+
+    <section id="home-view" class="view">
+      <div class="hero card">
+        <div><p class="eyebrow">FINANCE QUIZ</p><h1>学んだことを、<br>すぐに力へ。</h1><p>○×・四択問題で、金融の基礎をテンポよく復習できます。</p></div>
+        <div class="hero-score"><span>総合正答率</span><strong id="overall-rate">—</strong><small id="overall-count">まだ解答がありません</small></div>
+      </div>
+
+      <div class="section-heading"><div><p class="eyebrow">STUDY</p><h2>科目を選ぶ</h2></div><button class="text-button" data-action="start-all">全問題をランダムに出題 →</button></div>
+      <div id="category-grid" class="category-grid"></div>
+
+      <div class="quick-grid">
+        <button class="quick-card" data-action="review"><span class="quick-icon">↻</span><span><strong>まちがえた問題を復習</strong><small id="review-summary">苦手な問題を集中的に見直す</small></span><b>›</b></button>
+        <button class="quick-card" data-action="stats"><span class="quick-icon">▥</span><span><strong>学習の記録</strong><small>科目ごとの成績を確認</small></span><b>›</b></button>
+      </div>
+      <p class="source-note">収録問題は、指定された野村證券講座のPDFをもとに作成しています。問題の解説には参照資料とページを表示します。</p>
+    </section>
+
+    <section id="quiz-view" class="view hidden">
+      <div class="quiz-top"><button class="back-button" data-action="home">← 終了</button><span id="quiz-category" class="pill"></span><span id="quiz-counter"></span></div>
+      <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      <article class="question-card card">
+        <p id="question-type" class="eyebrow"></p><h1 id="question-text"></h1><div id="answer-list" class="answer-list"></div>
+        <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+      </article>
+      <div class="quiz-footer"><span id="live-score">正解 0 / 0</span><button id="next-button" class="primary-button hidden" data-action="next">次の問題 <span>→</span></button></div>
+    </section>
+
+    <section id="result-view" class="view hidden">
+      <article class="result-card card"><div class="result-icon">✓</div><p class="eyebrow">SESSION COMPLETE</p><h1>おつかれさまでした！</h1><p id="result-message"></p><div class="result-score"><strong id="result-score">0%</strong><span id="result-detail"></span></div><div class="result-actions"><button class="secondary-button" data-action="home">ホームへ</button><button class="primary-button" data-action="retry">もう一度挑戦</button></div></article>
+    </section>
+
+    <section id="stats-view" class="view hidden"><div class="section-heading"><div><p class="eyebrow">PROGRESS</p><h1>学習の記録</h1></div><button class="text-button" data-action="home">← ホーム</button></div><div id="stats-content"></div></section>
+  </main>
+  <div id="toast" class="toast hidden"></div>
+  <script src="questions.js"></script><script src="script.js"></script>
+</body>
+</html>
